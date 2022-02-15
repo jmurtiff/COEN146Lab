@@ -1,0 +1,162 @@
+# Name: Jordan Murtiff
+# Date: 4/7/20
+# Title: Lab2 - Questions, Observations, and Notes
+# Description: Write up for all Questions and Observations for Lab 2 for COEN 146
+
+Step 2: 
+	a. nestat: Displays active TCP connections, ports on which the computer is listening, Ethernet statistics, the IP routing table, 
+	IPv4 statistics, and IPv6 statistics. Basically displays all different network interfaces and all active sockets.
+
+	b. ifconfig: Displays the configuration of all active network interfaces. From this you could enable and disable an 
+	interface and easily troubleshoot your configurations. 
+
+	c. hostname: Returns "linux11116" which is the hostname of the system. From this command we can also set the hostname 
+	to whatever we would like.
+
+	d. ping: on its own the "ping" command doesn't really do anything. However, you can use ping in combination with a destination 
+	to send an ICMP ECHO_REQUEST and get an ECHO_RESPONSE from the host of gateway. Essentially a call and response to test time elapsed. 
+	This is great for getting an understanding of the response time between servers and computers and how distance and server 
+	location impacts this response time.
+
+	e. traceroute: When I type "traceroute google.com" it shows me the path a packet took from my given computer to the destination. 
+	Furthermore it tells you how much time has elapsed. Its a great way to get an understanding of the where the packet is and how
+	long it takes for it to move through the different routers and network switches.
+
+	f.  telnet: Interacting with remote computers. Allows you to give a specific ip and port to test whether it is open or 
+	not. It allows you to test the connectivity to remote machines and issue commands or get information from remote computers/servers.
+
+	g: host/dig: Used for verifying and troubleshooting DNS problems as well as displaying answers (system name) from 
+	requested server. Essentially performs DNS lookups
+
+	h: route: Shows/manipulate the IP routing table, which can be used for setting up static routes to specific host or networks via 
+	a given interface.
+
+	i: arp: Manipulates or displays the kernel's ARP cache. Can add,delete, or display the current content of the cache. The primary options of this command are 
+	clearing an address mapping entry and manually setting up one.
+
+Step 3: 
+	Using:
+	US: www.google.com (216.58.195.68)
+	Europe: www.tourismthailand.org (13.250.185.69)
+	Asia: baidu.com (220.181.38.148)
+
+	Part a. 
+	US: 
+		1. With packets of size 32 bytes, 0% packet loss.
+		2. With packets of size 64 bytes, 0% packet loss.
+		3. With packets of size 76 bytes, 0% packet loss.
+		76 bytes is the largest packet size we can use to ping www.google.com
+	Europe:
+		1. With packets of size 32 bytes, 0% packet loss.
+		2. With packets of size 64 bytes, 0% packet loss.
+		3. With packets of size 128 bytes, 0% packet loss.
+		4. With packets of size 256 bytes, 0% packet loss.
+		5. With packets of size 512 bytes, 0% packet loss.
+		6. With packets of size 1048 bytes, 0% packet loss.
+	Asia:
+		1. With packets of size 32 bytes, 0% packet loss.
+		2. With packets of size 64 bytes, 0% packet loss.
+		3. With packets of size 128 bytes, 0% packet loss.
+		4. With packets of size 256 bytes, 0% packet loss.
+		5. With packets of size 512 bytes, 0% packet loss.
+		6. With packets of size 1048 bytes, 0% packet loss.
+
+	Part b.
+	US:
+		1. With packets of size 32 bytes, RTT is 2.429 ms.
+		2. With packets of size 64 bytes, RTT is 2.512 ms.
+		3. With packets of size 76 bytes, RTT is 2.401 ms.
+	Europe: 
+		1. With packets of size 32 bytes, RTT is 186.343 ms.
+		2. With packets of size 64 bytes, RTT is 191.699 ms.
+		3. With packets of size 128 bytes, RTT is 188.416 ms.
+		4. With packets of size 256 bytes, RTT is 187.758 ms.
+		5. With packets of size 512 bytes, RTT is 188.296 ms.
+		6. With packets of size 1048 bytes, RTT is 188.594 ms.
+	Asia:
+		1. With packets of size 32 bytes, RTT is 141.485 ms.
+		2. With packets of size 64 bytes, RTT is 143.340 ms.
+		3. With packets of size 128 bytes, RTT is 141.678 ms.
+		4. With packets of size 256 bytes, RTT is 141.780 ms.
+		5. With packets of size 512 bytes, RTT is 142.269 ms.
+		6. With packets of size 1048 bytes, RTT is 141.467 ms.
+
+	Part c. 
+	These results make sense when you think about the location of the servers in relation to my computer. 
+	US is the shortest time since the server is in the same continent. Next down the list is Asia, since it has 
+	to go all the way through the US to the east coast, then through Europe and finally over to Asia. And lastly Europe, 
+	because it is the first country after the Atlantic undersea cable. The times may not make 100% sense, but you also have
+	to remember that baidu.com had multiple different ip addresses, so I may have pinged a closer server than intended (and that
+	is why the time is shorter for that Asia then for Europe).
+
+Step 5: 
+	Part a. 
+	I get the response of:
+	Trying 128.119.245.12...
+	Connected to gaia.cs.umass.edu.
+	Escape character is '^]'.
+
+	Part b. 
+	Returned is an HTML page detailing the webpage that contains the interactive end-of-chapter 
+	exercises for our Computer Networking textbook. In essence, it is the same as if we 
+	went to the specific webpage and viewed the "page source".
+
+	Part c.
+	What is the name of the file that is being retrieved in this GET message? 
+	   -The name of the file is index.php.
+	
+	What version of HTTP is the client running?
+	   -The verion of HTTP that the client is running is version 1.1.
+
+	What formats of text and images, if any?
+	   -The formats of the webpage include tables, <p>, lists, links, and images (specifically.jpg).
+
+Step 6:
+	US: When I do the command:
+			telnet www.google.com 80
+			
+		I get the response of:
+			Trying 216.58.195.68...
+			Connected to www.google.com.
+			Escape character is '^]'.
+
+		But when I instead do:
+			telnet www.google.com 3389
+
+		I get the response of:
+			Trying 216.28.195.68...
+			and it never stops until I stop the process
+	
+	Europe: When I do the command:
+			telnet www.tourismthailand.org 80
+		
+		I get the response of:
+			Trying 13.250.185.69...
+			Connected to www.tourismthailand.org
+			Escape character is '^]'.
+		
+		But when I instead do:
+			telnet www.tourismthailand.org 3389
+
+		I get the response of:
+			Trying 13.250.185.69...
+			and it never stops until I stop the process
+
+	Asia: When I do the command:
+			telnet baidu.com 80
+
+		I get the response of:
+			Trying 220.181.38.148...
+			Connected to www.baidu.com
+			Escape character is '^]'.
+
+		But when I instead do:
+			telnet www.baidu.org 3389
+
+		I get the response of:
+			Trying 220.181.38.148...
+			and it never stops until I stop the process
+		
+		So at the end of the day trying to connect using port 3389 does not seem to work
+		for all three of the possible hosts, but public port 80 does seem to work for all
+		three of the possible hosts.

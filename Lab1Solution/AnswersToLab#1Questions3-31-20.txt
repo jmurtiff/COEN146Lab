@@ -1,0 +1,17 @@
+# Name: Jordan Murtiff
+# Date: 3/31/20
+# Title: Lab 1 - Questions, Observations, and Notes
+
+1. Run the program by typing ./ExecutableName and take a note of your observation.
+    Observation: When I run the program by typing ./Part1 I get a return of "segmentation fault (core dumped) since we did not 
+    enter a command line parameter for the number of microseconds that the parent and child process must sleep before moving 
+    to the next iteration of the for loops.
+
+2. Re-run the program by typing ./ExecutableName  3000. Note that the delay in the loop depends on the 
+command line argument you give, here the delay is 3000 microseconds. 
+
+Question: Enter delays of 500 and 5000, what happens?
+    Answer: Entering a Delay of 500 makes the program complete much faster than a delay of 5000.
+    The higher the number the longer the delay in between the iterations of the for loop for both processes and the longer the 
+    program takes to run. Even though both programs complete successfully no matter the number of microseconds the user inputs, the
+    higher the parameter of microseconds, the longer the program takes to finish. 
